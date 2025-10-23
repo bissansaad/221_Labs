@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-int main(void) {
-    unsigned int x;
+int main() {
+	unsigned int x;
 
-    printf("Enter a number: ");
-    scanf("%u", &x);
+    	printf("Enter a number: ");
+    	scanf("%u", &x);
+	
+    	int first = !!x;
+    	int second = !!(~x);
+    	int third = !!(x & 0xFF);   
+    	int fourth = !!(~(x >> 24) & 0xFF);
 
-    int cond1 = !!x;                  // any bit of x = 1
-    int cond2 = !!(~x);               // any bit of x = 0
-    int cond3 = !!(x & 0xFF);         // any bit in least significant byte = 1
-    int cond4 = !!(~(x >> 24) & 0xFF); // any bit in most significant byte = 0
+    	printf("1) Any bit of x == 1: %d\n", first);
+    	printf("2) Any bit of x == 0: %d\n", second);
+    	printf("3) Any bit in least significant byte == 1: %d\n", third);
+    	printf("4) Any bit in most significant byte == 0: %d\n", fourth);
 
-    printf("1) Any bit of x == 1: %d\n", cond1);
-    printf("2) Any bit of x == 0: %d\n", cond2);
-    printf("3) Any bit in least significant byte == 1: %d\n", cond3);
-    printf("4) Any bit in most significant byte == 0: %d\n", cond4);
-
-    return 0;
+    	return 0;
 }
 
